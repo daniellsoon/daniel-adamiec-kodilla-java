@@ -10,27 +10,27 @@ public class WorldTestSuite {
     public void testGetSandBeansQuantity() {
 
         //Given
-        Country countryEurope1 = new Country("C1E", "123456789");
-        Country countryEurope2 = new Country("C2E", "789456123");
-        Country countryEurope3 = new Country("C3E", "741258963");
+        Country countryEurope1 = new Country("C1E", new BigDecimal ("123456789"));
+        Country countryEurope2 = new Country("C2E", new BigDecimal ("789456123"));
+        Country countryEurope3 = new Country("C3E", new BigDecimal ("741258963"));
 
         Continent europe = new Continent();
         europe.addCountry(countryEurope1);
         europe.addCountry(countryEurope2);
         europe.addCountry(countryEurope3);
 
-        Country countryAsia1 = new Country("C1A", "147852369");
-        Country countryAsia2 = new Country("C2A", "987521463");
-        Country countryAsia3 = new Country("C3A", "741258963");
+        Country countryAsia1 = new Country("C1A", new BigDecimal ("147852369"));
+        Country countryAsia2 = new Country("C2A", new BigDecimal ("987521463"));
+        Country countryAsia3 = new Country("C3A", new BigDecimal ("741258963"));
 
         Continent asia = new Continent();
         asia.addCountry(countryAsia1);
         asia.addCountry(countryAsia2);
         asia.addCountry(countryAsia3);
 
-        Country countryAmerica1 = new Country("C1A", "987321456");
-        Country countryAmerica2 = new Country("C2A", "951738426");
-        Country countryAmerica3 = new Country("C3A", "123987456");
+        Country countryAmerica1 = new Country("C1A", new BigDecimal ("987321456"));
+        Country countryAmerica2 = new Country("C2A", new BigDecimal ("951738426"));
+        Country countryAmerica3 = new Country("C3A", new BigDecimal ("123987456"));
 
         Continent america = new Continent();
         america.addCountry(countryAmerica1);
