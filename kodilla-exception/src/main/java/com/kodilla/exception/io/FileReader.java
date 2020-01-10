@@ -1,5 +1,6 @@
 package com.kodilla.exception.io;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,7 +20,7 @@ public class FileReader {
 
         } catch (IOException e) {
 
-            System.out.println("Something went wrong! Error: " +  e);
+            System.out.println(e);
 
         } finally {
 
