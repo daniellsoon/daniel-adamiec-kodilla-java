@@ -26,6 +26,30 @@ public class StatisticsCalculator {
 
     }
 
+    public int getNumberOfUsers() {
+        return numberOfUsers;
+    }
+
+    public int getNumberOfPosts() {
+        return numberOfPosts;
+    }
+
+    public int getNumberOfComments() {
+        return numberOfComments;
+    }
+
+    public double getPostsPerUser() {
+        return postsPerUser;
+    }
+
+    public double getCommentsPerUser() {
+        return commentsPerUser;
+    }
+
+    public double getCommentsPerPost() {
+        return commentsPerPost;
+    }
+
     public void showStatistics(){
         System.out.println("Forum Statistics:");
         System.out.println("Users: " + numberOfUsers);
