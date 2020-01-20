@@ -1,28 +1,32 @@
 package com.kodilla.exception.test;
 
-import java.util.HashMap;
-import java.util.Map;
+        import java.util.HashMap;
+        import java.util.Map;
 
 public class FlightFinder {
 
     public void findFlight(Flight flight) throws RouteNotFoundException{
 
         HashMap<String, Boolean> map = new HashMap<>();
-        String exceptionTest = null;
+        map.put("Warsaw", false);
+        map.put("Paris", false);
+        map.put("Moscow", false);
+        map.put("Madrid", true);
+        map.put("Belgrade", true);
 
-         for (Map.Entry<String, Boolean> entry : map.entrySet()) {
-             String k = entry.getKey();
-             Boolean v = entry.getValue();
 
-             if (k.equals(flight.getArrivalAirport())) {
-                 exceptionTest = "Possibility of flights (true/false): ";
-                 System.out.println(exceptionTest + v);
-             }
-         }
+        Boolean isArrivalAirport = map.get(flight.getArrivalAirport());
+        Boolean isDepartureAirport = map.get(flight.getDepartureAirport());
 
-         if (exceptionTest == null) {
-             throw new RouteNotFoundException();
-         }
+
+        if(isArrivalAirport == null || isDepartureAirport == null) {
+            throw new RouteNotFoundException();
+        }
+
+        if(isDepartureAirport == false) {
+            throw new RouteNotFoundException();
+        }
+
     }
 
 }

@@ -12,7 +12,7 @@ public class RouteNotFoundExceptionRunner {
         try {
             finder.findFlight(flight);
         } catch (RouteNotFoundException e) {
-            System.out.println("Cannot find this arrival airport in DataBase!");
+            System.out.println("Cannot find this airport in DataBase!");
         }
 
         System.out.println("Please search again!");
