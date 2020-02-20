@@ -4,12 +4,13 @@ package com.kodilla.good.patterns.challenges.food2door;
 import com.kodilla.good.patterns.challenges.food2door.orderService.OrderService;
 import com.kodilla.good.patterns.challenges.food2door.orderService.ProductDto;
 import com.kodilla.good.patterns.challenges.food2door.products.Product;
+import com.kodilla.good.patterns.challenges.food2door.products.ProductNotFoundException;
 import com.kodilla.good.patterns.challenges.food2door.products.ProductRepository;
 import com.kodilla.good.patterns.challenges.food2door.suppliers.ExtraFoodShop;
 import com.kodilla.good.patterns.challenges.food2door.suppliers.GlutenFreeShop;
 import com.kodilla.good.patterns.challenges.food2door.suppliers.HealthyShop;
 
-public class food2doorApplication {
+public class Food2doorApplication {
 
     public static void main(String[] args){
 
@@ -22,22 +23,24 @@ public class food2doorApplication {
 
         Product eggs = new Product("Eggs", extraFoodShop);
         productRepository.putProduct(eggs, 10);
-        Product bread =new Product("Bread", extraFoodShop);
+        Product bread = new Product("Bread", extraFoodShop);
         productRepository.putProduct(bread ,15);
-        Product wheat =new Product("Wheat", extraFoodShop);
+        Product wheat = new Product("Wheat", extraFoodShop);
         productRepository.putProduct(wheat, 20);
-        Product butter =new Product("Butter", healthyShop );
+        Product butter = new Product("Butter", healthyShop );
         productRepository.putProduct(butter ,10);
-        Product cheese =new Product("Cheese", healthyShop);
+        Product cheese = new Product("Cheese", healthyShop);
         productRepository.putProduct(cheese, 20);
-        Product dumplings =new Product("Dumplings", healthyShop);
+        Product dumplings = new Product("Dumplings", healthyShop);
         productRepository.putProduct(dumplings, 15);
-        Product tomato =new Product("Tomato", glutenFreeShop);
+        Product tomato = new Product("Tomato", glutenFreeShop);
         productRepository.putProduct(tomato, 10);
-        Product cucumber =new Product("Cucumber", glutenFreeShop);
+        Product cucumber = new Product("Cucumber", glutenFreeShop);
         productRepository.putProduct(cucumber, 15);
-        Product maize =new Product("Maize", glutenFreeShop);
+        Product maize = new Product("Maize", glutenFreeShop);
         productRepository.putProduct(maize, 0);
+
+
 
 
         ProductDto order1 = new ProductDto(eggs, 10);
@@ -46,7 +49,11 @@ public class food2doorApplication {
         ProductDto order2 = new ProductDto(cheese, 30 );
         orderService.orderProcess(order2, productRepository);
 
-        ProductDto orderError = new ProductDto(maize, 10);
-        orderService.orderProcess(orderError, productRepository);
+        try {
+            ProductDto orderError = new ProductDto(maize, 10);
+            orderService.orderProcess(orderError, productRepository);
+        } catch(ProductNotFoundException e) {
+            System.out.println("Error!");
+        }
     }
 }

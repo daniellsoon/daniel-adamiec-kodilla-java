@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.challenges.food2door.suppliers;
 
-        import com.kodilla.good.patterns.challenges.food2door.orderService.ProductDto;
-        import com.kodilla.good.patterns.challenges.food2door.products.ProductRepository;
+import com.kodilla.good.patterns.challenges.food2door.orderService.ProductDto;
+import com.kodilla.good.patterns.challenges.food2door.products.ProductRepository;
 
 public class ExtraFoodShop extends Supplier {
 

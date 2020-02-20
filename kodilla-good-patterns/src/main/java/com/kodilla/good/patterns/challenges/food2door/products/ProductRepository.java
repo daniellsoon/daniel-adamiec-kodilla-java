@@ -1,9 +1,5 @@
 package com.kodilla.good.patterns.challenges.food2door.products;
 
-import com.kodilla.good.patterns.challenges.food2door.suppliers.ExtraFoodShop;
-import com.kodilla.good.patterns.challenges.food2door.suppliers.GlutenFreeShop;
-import com.kodilla.good.patterns.challenges.food2door.suppliers.HealthyShop;
-
 import java.util.HashMap;
 import java.util.Map;
 
