@@ -12,6 +12,7 @@ public class Product {
         this.supplier = supplier;
     }
 
+
     public String getName() {
         return name;
     }
