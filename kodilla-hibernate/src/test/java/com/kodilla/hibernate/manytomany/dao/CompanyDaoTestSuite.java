@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -60,4 +64,55 @@ public class CompanyDaoTestSuite {
             //do nothing
         }
     }
+
+    @Test
+    public void testQueryCompaniesNameStart() {
+
+        //Given
+        Company softwareMachine = new Company("SoftwareMachine");
+        Company dataMaesters = new Company("DataMaesters");
+        Company greyMatter = new Company("GreyMatter");
+
+        //When
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+        List<Company> resultThreeMatch = companyDao.retrieveCompaniesStartedAt("dat");
+
+        //Then
+        Assert.assertEquals(1, resultThreeMatch.size());
+        //CleanUp
+        companyDao.deleteById(softwareMachineId);
+        companyDao.deleteById(dataMaestersId);
+        companyDao.deleteById(greyMatterId);
+    }
+
+    @Test
+    public void testQueryEmployeesLastName() {
+
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        //When
+        employeeDao.save(johnSmith);
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(lindaKovalsky);
+
+        int result = employeeDao.retrieveWorkersByLastName("Smith").size();
+
+        //Then
+        Assert.assertEquals(1,result );
+
+        //CleanUP
+        employeeDao.deleteAll();
+
+
+
+    }
+
 }
