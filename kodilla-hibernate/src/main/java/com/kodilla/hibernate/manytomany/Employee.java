@@ -5,8 +5,15 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(name = "Employee.retrieveWorkersByLastName",
-            query = "FROM EMPLOYEES WHERE lastname == :LASTNAME")
+@NamedQueries({
+        @NamedQuery(name = "Employee.retrieveWorkersByLastName",
+                query = "FROM EMPLOYEES WHERE lastname == :LASTNAME"),
+        @NamedQuery(name = "Employee.findEmployeeByPartOfLastname",
+                query = "FROM Employee WHERE lastname LIKE : %PART_LASTNAME% ")
+})
+
+
+
 
 @Entity
 @Table(name = "EMPLOYEES")
