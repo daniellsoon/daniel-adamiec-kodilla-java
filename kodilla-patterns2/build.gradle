@@ -16,6 +16,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     implementation 'junit:junit:4.12'
+    compile ('org.springframework.boot:spring-boot-starter-aop')
 }
 
 test {
